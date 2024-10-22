@@ -9,7 +9,7 @@ module.exports = class TestController {
       res.status(200).json(test);
     } 
     catch (error) {
-      res.status(500).json({ status: "error", msg: "Something went wrong" });
+      res.status(500).json({ status: "error", msg: error });
     }
   }
 
@@ -28,7 +28,7 @@ module.exports = class TestController {
         res.status(404).json({ status: "error", msg: "Test Now Found"});
       }
     } catch (error) {
-      res.status(500).json({ status: "error", msg: "Something went wrong" });
+      res.status(500).json({ status: "error", msg: error });
     }
   }
 
@@ -40,7 +40,7 @@ module.exports = class TestController {
       await newTest.create();
       return res.status(201).json({ status: "success", msg: "Test added successfully"});
     } catch (error) {
-      res.status(500).json({ status: "error", msg: "Something went wrong" });
+      res.status(500).json({ status: "error", msg: error });
     }
   }
 
@@ -55,7 +55,7 @@ module.exports = class TestController {
       await test.updateTestById(req.body.id, req.body);
       return res.status(202).json({ status: "success", msg: "Test updated successfully." });
     } catch (error) {
-      res.status(500).json({ status: "error", msg: "Something went wrong" });
+      res.status(500).json({ status: "error", msg: error });
     }
   }
 
@@ -66,7 +66,7 @@ module.exports = class TestController {
       await test.deleteById(req.params.id);
       res.status(200).json({ status: "success", msg: "Test deleted successfully" });
     } catch (error) {
-      res.status(500).json({ status: "error", msg: "Something went wrong" });
+      res.status(500).json({ status: "error", msg: error });
     }
   }
 };
