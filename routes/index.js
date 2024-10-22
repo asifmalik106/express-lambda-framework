@@ -8,8 +8,6 @@ router.post("/api/test", TestController.createTest);
 
 // GET route to retrieve all tests
 router.get("/api/test",authCheck,  TestController.getAllTests);
-router.get("/api/test/new",  TestController.createNewUser);
-router.post("/api/test/verify",  TestController.verifyIDToken);
 
 // GET route to retrieve a single test by ID
 router.get("/api/test/:id", TestController.getTestById);

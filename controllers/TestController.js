@@ -1,6 +1,5 @@
 let Test = require("../services/Test");
 let { getLanguage, getMessage } = require("../config/language");
-let firebaseAdmin = require("../config/dbConfig");
 module.exports = class TestController {
   // Read operation (GET all tests)
   static async getAllTests(req, res) {
@@ -32,75 +31,6 @@ module.exports = class TestController {
       res.status(500).json({ status: "error", msg: "Something went wrong" });
     }
   }
- // Create New user (POST)
-  static async createNewUser(req, res) {
-    try {
-console.log("Auth Activity Triggered!")
-
-      firebaseAdmin.getAuth().createUser({
-        email: 'user@example.com',
-        emailVerified: false,
-        phoneNumber: '+11234567890',
-        password: 'secretPassword',
-        displayName: 'John Doe',
-        photoURL: 'http://www.example.com/12345678/photo.png',
-        disabled: false,
-      })
-          .then((userRecord) => {
-            // See the UserRecord reference doc for the contents of userRecord.
-            res.status(200).json('Successfully created new user:', userRecord.uid);
-          })
-          .catch((error) => {
-            res.status(500).json('Error creating new user:', error);
-          });
-
-
-
-    }catch (error){
-      res.status(500).json(error)
-    }
-
-  }
-
-  // Verify ID Token (POST)
-  static async verifyIDToken(req, res) {
-    try {
-      firebaseAdmin.getAuth()
-          .verifyIdToken(req.body.idToken)
-          .then((decodedToken) => {
-            res.status(200).json(decodedToken);
-            // ...
-          })
-          .catch((error) => {
-            res.status(500).json("Inside verify token: "+error);
-          });
-    }catch (e){
-      res.status(500).json("Outside verify token: "+e);
-
-    }
-  }
-
-
-
-  // Login Function
-static async loginTest(req, res) {
-  try {
-    let { email, password } = req.body;
-    firebaseAdmin.getAuth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Signed in
-          var user = userCredential.user;
-          // ...
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-        });
-    return res.status(201).json({ status: "success", msg: "Test added successfully"});
-  } catch (error) {
-    res.status(500).json({ status: "error", msg: "Something went wrong" });
-  }
-}
 
   // Create operation (POST)
   static async createTest(req, res) {
