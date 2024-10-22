@@ -1,6 +1,12 @@
 let Test = require("../services/Test");
 let { getLanguage, getMessage } = require("../config/language");
 module.exports = class TestController {
+  
+    // Read operation (GET all tests)
+    static async hello(req, res) {
+      res.status(200).json({ status: "success", msg: "Hello World! from Test" });
+    }
+  
   // Read operation (GET all tests)
   static async getAllTests(req, res) {
     try 
