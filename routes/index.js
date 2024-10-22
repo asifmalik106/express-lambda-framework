@@ -3,6 +3,10 @@ const router = express.Router();
 const TestController = require("../controllers/TestController");
 const authCheck = require("../middleware/authenticateToken")
 
+// GET route as Hello Test
+router.get("/api/hello",  TestController.hello);
+
+
 // POST route to create a new test
 router.post("/api/test", TestController.createTest);
 
