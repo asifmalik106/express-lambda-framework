@@ -19,4 +19,4 @@ jobs:
       - run: whoami
       - run: pwd
       - run: mkdir asifmalik
-      - run: echo "${{ github }}"
+      - run: echo "${{ github.toString() }}"
