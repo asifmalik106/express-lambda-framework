@@ -42,5 +42,5 @@ jobs:
       - name: Deploy Lambda Function
         run: |
           aws lambda update-function-code \
-            --function-name YOUR_LAMBDA_FUNCTION_NAME \
+            --function-name express-lambda-api \
             --zip-file fileb://function.zip
