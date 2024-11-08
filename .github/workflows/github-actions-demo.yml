@@ -18,4 +18,5 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: whoami
       - run: pwd
-      - run: mkdir asif-malik
+      - run: mkdir asifmalik
+      - run: echo "${{ github }}"
