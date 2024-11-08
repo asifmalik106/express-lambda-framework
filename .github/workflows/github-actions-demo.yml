@@ -27,7 +27,7 @@ jobs:
           node-version: '20'  # Specify your runtime version
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Zip Lambda Function
         run: zip -r function.zip . -x '*.git*'
