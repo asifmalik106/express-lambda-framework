@@ -4,7 +4,7 @@ module.exports = class TestController {
   
     // Read operation (GET all tests)
     static async hello(req, res) {
-      res.status(200).json({ status: "success", msg: "Hello World! from Test" });
+      res.status(200).json({ status: "success", msg: "Hello World! from Test VERSION 2 CICD" });
     }
   
   // Read operation (GET all tests)
